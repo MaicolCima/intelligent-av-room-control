@@ -1,0 +1,81 @@
+paths:
+  yunet_model: "enter the appropriate path"
+  yolo_model: "enter the appropriate path"
+  vosk_model: "enter the appropriate path"
+  voice_commands_json: "voice_commands.json"
+
+camera:
+  ip: "enter the appropriate IP"
+  visca_port: 1259
+  rtsp_url: "enter the appropriate rtsp_url"
+
+  presets:
+    home: 0
+    prodotti: 1
+    relatore: 2
+    platea: 3
+  settle_time_s: 2.0  # Time to wait after activating a preset before resuming face detection
+
+voice:
+  wake_timeout_s: 8.0  # Time window available to issue a command after the wake word
+  default_fuzzy_threshold: 80
+  sample_rate: 16000
+  sound_wake: ""      # Optional .wav file path (Windows only)
+  sound_success: ""
+
+tracking:
+  max_visca_speed: 24
+  min_visca_speed: 4
+  enable_yolo_fallback: true
+  search_timeout_s: 3.0         # Time to wait before starting a new search after losing the face
+  search_to_home_timeout_s: 8.0 # Time before returning to the home preset if the face remains lost
+  beam_grace_s: 2.5             # Minimum time a beam target must be lost before microphone input takes priority
+  center_target_y: 0.30         # Keeps the face within the upper 30% of the camera frame
+
+# ============================================================
+# ATND1061 MICROPHONE ARRAY: beam -> zone -> camera preset
+# ============================================================
+beam:
+  enabled: true
+  rotation_offset_deg: 180
+  mic_ip: "enter the appropriate IP"
+  tcp_port: 17300
+  multicast_group: "enter the appropriate multicast group"
+  udp_port: 17000
+  local_ip: "enter the appropriate PC IP address on the microphone network"
+
+  # --- TEMPORAL FILTERING AND CAMERA STABILITY ---
+  window_s: 1.5                # Observation window duration
+  dwell_ratio: 0.6             # Minimum percentage of samples required to remain within the same zone
+  min_samples: 5               # Minimum number of samples required within the observation window
+  hysteresis_deg: 10           # Angular margin required to leave the current zone
+  min_switch_interval_s: 4.0   # Minimum interval between camera movements in speaker-following mode
+  hint_max_age_s: 5.0          # Maximum validity period of the last detected speaker zone
+
+  # If true, only beams within zones marked with priority: true are processed
+  # This corresponds to the microphone's priority zones; all other zones are ignored
+  priority_only: false
+
+  # If not empty, only notifications matching the specified microphone camera area are accepted
+  accept_mic_areas: []
+
+  # Beam rotation zones in degrees (field 4 of the notification, e.g. 168-170).
+  # Calibration: run test_atnd1061_beam.py, speak from different positions and record the detected rotation.
+  # [min, max]; if min > max, the zone crosses the 0-degree boundary (e.g. [340, 20]).
+  # Optional elevation: [min, max] in degrees, used to reject sounds coming from above or below the target area.
+  zones:
+    - name: prodotti
+      rotation: [100, 148]
+      preset: prodotti
+      priority: true
+
+    - name: relatore
+      rotation: [148, 195]
+      elevation: [28, 75]
+      preset: relatore
+      priority: true
+
+    - name: platea
+      rotation: [195, 265]
+      preset: platea
+      priority: true

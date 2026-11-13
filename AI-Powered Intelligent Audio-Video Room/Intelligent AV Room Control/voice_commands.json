@@ -1,0 +1,108 @@
+{
+  "wake_word": "piero",
+  "commands": [
+    {
+      "name": "SEGUIMI",
+      "phrases": [
+        "seguimi",
+        "segui me",
+        "inizia a seguirmi",
+        "attiva tracking"
+      ],
+      "action": "track_start"
+    },
+    {
+      "name": "FERMA TRACKING",
+      "phrases": [
+        "fermati",
+        "smetti di seguirmi",
+        "ferma tracking",
+        "stop tracking",
+        "interrompi tracking",
+        "interrompi il tracking",
+        "disattiva tracking"
+      ],
+      "action": "track_stop"
+    },
+    {
+      "name": "SEGUI CHI PARLA",
+      "phrases": [
+        "segui chi parla",
+        "ascolta chi parla",
+        "modalita dibattito"
+      ],
+      "action": "follow_speaker"
+    },
+    {
+      "name": "PRESET PLATEA",
+      "phrases": [
+        "spostati verso la platea",
+        "inquadra la platea",
+        "vai in platea",
+        "telecamera pubblico",
+        "preset platea",
+        "telecamera platea",
+        "telecamera verso la platea",
+        "inquadra platea"
+      ],
+      "action": "preset",
+      "preset": "platea"
+    },
+    {
+      "name": "PRESET RELATORE",
+      "phrases": [
+        "spostati verso il relatore",
+        "inquadra il relatore",
+        "telecamera principale",
+        "preset relatore",
+        "telecamera relatore",
+        "telecamera verso il relatore"
+      ],
+      "action": "preset",
+      "preset": "relatore"
+    },
+    {
+      "name": "PRESET PRODOTTI",
+      "phrases": [
+        "spostati verso i prodotti",
+        "inquadra i prodotti",
+        "telecamera prodotti",
+        "preset prodotti",
+        "telecamera verso prodotti",
+        "telecamera verso i prodotti"
+      ],
+      "action": "preset",
+      "preset": "prodotti"
+    },
+    {
+      "name": "PRESET HOME",
+      "phrases": [
+        "torna alla posizione iniziale",
+        "vai a home",
+        "inquadratura generale",
+        "preset home",
+        "telecamera home"
+      ],
+      "action": "preset",
+      "preset": "home"
+    },
+    {
+      "name": "CALIBRA POSIZIONE",
+      "phrases": [
+        "calibra",
+        "calibra posizione",
+        "memorizza posizione",
+        "salva posizione"
+      ],
+      "action": "beam_calibrate"
+    },
+    {
+      "name": "CANCELLA CALIBRAZIONE",
+      "phrases": [
+        "cancella calibrazione",
+        "azzera calibrazione"
+      ],
+      "action": "beam_clear"
+    }
+  ]
+}

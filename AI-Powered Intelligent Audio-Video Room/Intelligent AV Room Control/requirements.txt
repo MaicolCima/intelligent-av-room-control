@@ -1,0 +1,6 @@
+numpy
+opencv-contrib-python   
+vosk
+sounddevice
+pyyaml
+ultralytics             
