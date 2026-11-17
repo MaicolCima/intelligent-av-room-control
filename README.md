@@ -82,8 +82,8 @@ Intelligent-AV-Room-Control/
 ### Hardware
 
 - A PTZ camera with **VISCA over UDP** and an **RTSP** stream (developed with a Minrray camera).
-- *(Optional)* an **Audio-Technica ATND1061** beamforming microphone on the same network, for speaker-aware camera control.
-- A USB/system microphone for voice commands.
+- An **Audio-Technica ATND1061** beamforming microphone on the same network, for speaker-aware camera control.
+
 
 ### Software
 
